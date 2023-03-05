@@ -20,16 +20,19 @@ public class Mascota {
         this.nombre = nombre;
     }
     
-    public void comer() {
-        if (this.estado.equals("hambrienta")) {
-            this.estado = "contenta";
-        } else if (this.estado.equals("contenta")) {
-            this.nivel += 1;
-        } else if (this.estado.equals("aburrida") && minutosDesdeUltimoAburrimiento() > 80) {
-            this.estado = "contenta";
+public void comer() {
+    switch (this.estado) {
+        case "hambrienta" -> this.estado = "contenta";
+        case "contenta" -> this.nivel += 1;
+        case "aburrida" -> {
+            if (minutosDesdeUltimoAburrimiento() > 80) {
+                this.estado = "contenta";
+            }
         }
+        default -> System.out.println("Por favor verifique el estado de su mascota.");
     }
-    
+}
+
      public void jugar() {
         switch (this.estado) {
             case "contenta" -> this.nivel += 2;
