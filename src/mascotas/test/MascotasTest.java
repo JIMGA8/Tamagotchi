@@ -24,10 +24,12 @@ public class MascotasTest {
         gato.setEstado("hambrienta");
         gato.comer();
         assert("contenta".equals(gato.getEstado()));
+        assert(1== gato.getNivel());
 
-        gato.setEstado("aburrida");
+        gato.setEstado("aburrida"); //aqui esta aburrida y el tiempo de aburrimiento es menor a 80 min por eso sigue aburrida
         gato.comer();
         assert("aburrida".equals(gato.getEstado()));
+        assert(1 == gato.getNivel());
        
        
        //Test Jugar
@@ -49,11 +51,13 @@ public class MascotasTest {
         assert("contenta".equals(perro.getEstado()));
     
         
-        //Test Tiempo aburrido >80 min
+        //Test Tiempo aburrido > 80 min
         Mascota tigre=  new Mascota();
+        assert(0== tigre.getNivel());
+        assert("contenta".equals(tigre.getEstado()));
         assert(0 == tigre.getTiempoAburrida());
        
-        String fechaString = "2023-03-05 10:12:00";
+        String fechaString = "2023-03-05 15:32:00";
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date fecha= formatter.parse(fechaString);
         
@@ -63,6 +67,7 @@ public class MascotasTest {
         
         tigre.comer();
         assert("contenta".equals(tigre.getEstado()));
+        assert(0== tigre.getNivel());
         
     }
     
