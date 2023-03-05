@@ -26,7 +26,8 @@ public class MascotasTest {
         assert("contenta".equals(gato.getEstado()));
         assert(1== gato.getNivel());
 
-        gato.setEstado("aburrida"); //aqui esta aburrida y el tiempo de aburrimiento es menor a 80 min por eso sigue aburrida
+        //aqui esta aburrida y el tiempo de aburrimiento es menor a 80 min por eso sigue aburrida
+        gato.setEstado("aburrida"); 
         gato.comer();
         assert("aburrida".equals(gato.getEstado()));
         assert(1 == gato.getNivel());
